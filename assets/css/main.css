@@ -31,14 +31,15 @@
 }
 
 :root:has(.mode:checked) {
-  --primary-hue: 50;
+  --primary-hue: 90;
   --light-hue: 0;
   --light-saturation: 0%;
   --light-lightness: 9%;
   --color-default: #fff;
   --color-secondary: #fff;
-  --color-light-grey: #202020;
+  --color-light-grey: #252525;
 }
+
 :root:has(.mode:checked) body {
   background-color: #202020;
 }
@@ -46,6 +47,7 @@
 :root:has(.mode:checked) .mode-group .dark {
   display: none;
 }
+
 :root:has(.mode:checked) .mode-group .light {
   display: block;
 }
@@ -93,6 +95,11 @@ a:hover {
 a,
 span {
   display: inline-block;
+}
+
+picture,
+img {
+  display: block;
 }
 
 h1,
@@ -199,6 +206,7 @@ section {
   color: #7f7f90;
   font-weight: 400;
   font-size: 14px;
+  text-transform: uppercase;
 }
 
 .main-title p {
@@ -269,11 +277,25 @@ nav .nav-links a {
 /* !============> Testing */
 body:has(.home:target) li a[href="#home"],
 body:has(.contact:target) li a[href="#contact"],
+body:has(.gallery:target) li a[href="#gallery"],
 body:has(.chefs:target) li a[href="#chefs"] {
   color: #000;
 }
+
+body:has(.home:target):has(.mode:checked) li a[href="#home"],
+body:has(.contact:target):has(.mode:checked) li a[href="#contact"],
+body:has(.gallery:target):has(.mode:checked) li a[href="#gallery"],
+body:has(.chefs:target):has(.mode:checked) li a[href="#chefs"] {
+  color: hsl(
+    var(--light-hue),
+    var(--light-saturation),
+    calc(var(--light-lightness) + 90%)
+  );
+}
+
 body:has(.home:target) li a[href="#home"]::before,
 body:has(.contact:target) li a[href="#contact"]::before,
+body:has(.gallery:target) li a[href="#gallery"]::before,
 body:has(.chefs:target) li a[href="#chefs"]::before {
   width: calc(100% - (var(--inline-gap) * 2));
 }
@@ -431,12 +453,16 @@ picture img {
 .chefs-cards .card picture:before {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   background-image: url("../img/team-shape.svg");
   background-repeat: repeat-x;
   width: 100%;
   height: 60px;
+}
+
+:root:has(.mode:checked) .chefs-cards .card picture:before {
+  background-image: url("../img/team-shape-dark.svg");
 }
 
 .chefs-cards .card-content {
@@ -481,6 +507,59 @@ picture img {
 
 .chefs-cards .social-box i:hover {
   color: #37373fe6;
+}
+
+/*?============> Gallery <============*/
+.gallery-photos {
+  --gap: 20px;
+  height: 1165px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.gallery-photos picture {
+  width: calc(calc(100% - var(--gap) * 2) / 3);
+  border: 4px solid #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-photos picture img {
+  width: 100%;
+  transition: scale var(--animation-duration);
+}
+
+.gallery-photos picture .layer {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background-color: #00000096;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  transition: top var(--animation-duration);
+}
+
+.gallery-photos picture .layer p {
+  color: #ddd;
+  text-align: center;
+}
+
+.gallery-photos picture:hover img {
+  scale: 1.1;
+}
+
+.gallery-photos picture:hover .layer {
+  top: 0;
 }
 
 /*?============> Contact <============*/
