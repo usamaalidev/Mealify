@@ -312,9 +312,12 @@ nav .nav-links a::before {
   transition: width var(--animation-duration);
 }
 
-nav .nav-links a:hover,
-a.active {
+nav .nav-links a:hover {
   color: #000;
+}
+
+body:has(.mode:checked) nav .nav-links a:hover {
+  color: #fff;
 }
 
 nav .nav-links a:hover::before,
