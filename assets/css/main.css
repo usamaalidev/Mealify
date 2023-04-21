@@ -11,6 +11,7 @@
     var(--primary-lightness)
   );
   --color-secondary: #37373f;
+  --color-tertiary: #7f7f90;
   --light-hue: 0;
   --light-saturation: 0%;
   --light-lightness: 100%;
@@ -28,28 +29,6 @@
   --font-secondary: "Inter", sans-serif;
   /* ? ######## Animation options */
   --animation-duration: 400ms;
-}
-
-:root:has(.mode:checked) {
-  --primary-hue: 90;
-  --light-hue: 0;
-  --light-saturation: 0%;
-  --light-lightness: 9%;
-  --color-default: #fff;
-  --color-secondary: #fff;
-  --color-light-grey: #252525;
-}
-
-:root:has(.mode:checked) body {
-  background-color: #202020;
-}
-
-:root:has(.mode:checked) .mode-group .dark {
-  display: none;
-}
-
-:root:has(.mode:checked) .mode-group .light {
-  display: block;
 }
 
 /*^============> Mode <============*/
@@ -149,12 +128,15 @@ section {
 
 /*^========> Customize Scrollbar <========*/
 ::-webkit-scrollbar {
-  width: 10px;
-  background-color: #111;
+  width: 12px;
+  background-color: #fff;
+  border-left: 2px solid #eee;
+  box-shadow: 0px 0px 21px 0px #0003 inset;
 }
 ::-webkit-scrollbar-thumb {
-  width: 10px;
-  background-color: var(--color-light);
+  background-color: #000;
+  box-shadow: 0px 0px 10px 0px #eeeeee8c inset;
+  border-radius: 100vh;
 }
 
 /*^========> Customize Selection Styles <========*/
@@ -213,7 +195,7 @@ section {
 }
 
 .main-title h2 {
-  color: #7f7f90;
+  color: var(--color-tertiary);
   font-weight: 400;
   font-size: 14px;
   text-transform: uppercase;
@@ -259,7 +241,7 @@ nav .nav-links {
   --block-gap: 5px;
   display: flex;
   font-size: 17px;
-  color: #7f7f90;
+  color: var(--color-tertiary);
   font-weight: 600;
 }
 
@@ -289,23 +271,20 @@ nav .nav-links a {
   position: relative;
   transition: color var(--animation-duration);
 }
-/* !============> Testing */
+
+body:has(:not(:target)) li a[href="#home"] {
+  color: #000;
+}
+
+body:has(:not(:target)) li a[href="#home"]::before {
+  width: calc(100% - (var(--inline-gap) * 2));
+}
+
 body:has(.home:target) li a[href="#home"],
 body:has(.contact:target) li a[href="#contact"],
 body:has(.gallery:target) li a[href="#gallery"],
 body:has(.chefs:target) li a[href="#chefs"] {
   color: #000;
-}
-
-body:has(.home:target):has(.mode:checked) li a[href="#home"],
-body:has(.contact:target):has(.mode:checked) li a[href="#contact"],
-body:has(.gallery:target):has(.mode:checked) li a[href="#gallery"],
-body:has(.chefs:target):has(.mode:checked) li a[href="#chefs"] {
-  color: hsl(
-    var(--light-hue),
-    var(--light-saturation),
-    calc(var(--light-lightness) + 90%)
-  );
 }
 
 body:has(.home:target) li a[href="#home"]::before,
@@ -314,7 +293,6 @@ body:has(.gallery:target) li a[href="#gallery"]::before,
 body:has(.chefs:target) li a[href="#chefs"]::before {
   width: calc(100% - (var(--inline-gap) * 2));
 }
-/* !============> End Testing */
 
 nav .nav-links a::before {
   content: "";
@@ -329,10 +307,6 @@ nav .nav-links a::before {
 
 nav .nav-links a:hover {
   color: #000;
-}
-
-body:has(.mode:checked) nav .nav-links a:hover {
-  color: #fff;
 }
 
 nav .nav-links a:hover::before,
@@ -483,10 +457,6 @@ header picture img:hover {
   height: 60px;
 }
 
-:root:has(.mode:checked) .chefs-cards .card picture:before {
-  background-image: url("../img/team-shape-dark.svg");
-}
-
 .chefs-cards .card-content {
   padding: 25px;
   padding-top: 10px;
@@ -494,14 +464,14 @@ header picture img:hover {
 
 .chefs-cards .card span {
   font-size: 14px;
-  color: #7f7f90;
+  color: var(--color-tertiary);
   margin-block: 5px 10px;
 }
 
 .chefs-cards .card p {
   font-size: 15px;
   font-style: italic;
-  color: #7f7f90;
+  color: var(--color-tertiary);
 }
 
 .chefs-cards .social-box {
@@ -611,7 +581,7 @@ header picture img:hover {
 }
 
 .contact .details > div h3 {
-  color: #6c757d;
+  color: #7d7d7d;
   font-size: 20px;
   font-weight: 700;
   margin: 0 0 5px 0;
