@@ -23,6 +23,7 @@
   display: block;
 }
 
+body:not(body:has(:target)):has(.mode:checked) li a[href="#home"],
 body:has(.home:target):has(.mode:checked) li a[href="#home"],
 body:has(.contact:target):has(.mode:checked) li a[href="#contact"],
 body:has(.gallery:target):has(.mode:checked) li a[href="#gallery"],

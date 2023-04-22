@@ -1,3 +1,8 @@
+@media screen and (max-width: 300px) {
+  :root {
+    font-size: 12px;
+  }
+}
 /*^========> Container <========*/
 @media screen and (min-width: 1400px) {
   .container {
@@ -103,6 +108,12 @@
     --border-radius: 100vh;
   }
 }
+@media screen and (max-width: 300px) {
+  .header-content .btn-group {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
 
 /*^========> Chefs <========*/
 @media screen and (max-width: 992px) {
@@ -200,5 +211,12 @@
   footer .container :is(.about, .contact-details, .subscription) {
     width: 100%;
     order: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  footer .sunscription-group {
+    flex-direction: column;
+    gap: 10px;
   }
 }

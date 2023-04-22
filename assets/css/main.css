@@ -108,7 +108,7 @@ section {
   --border-radius: 1rem;
   --hover-bg-color: transparent;
   --hover-color: transparent;
-  --font-size: 16px;
+  --font-size: 1rem;
 
   padding: var(--padding);
   border: var(--border-width) solid var(--border-color);
@@ -152,7 +152,7 @@ section {
 }
 /*^========> Container <========*/
 .container {
-  --padding: 40px 5px;
+  --padding: 2.5rem 0.3125rem;
   --margin-top: 0;
   --margin-bottom: 0;
   margin-inline: auto;
@@ -163,12 +163,12 @@ section {
 }
 
 :is(header) .container {
-  --margin-top: 95px;
+  --margin-top: 5.9375rem;
 }
 
 :is(section) .container {
-  --margin-top: 50px;
-  --margin-bottom: 50px;
+  --margin-top: 3.125rem;
+  --margin-bottom: 3.125rem;
 }
 /*^============> Reusable Classes <============*/
 
@@ -184,25 +184,25 @@ section {
     calc(var(--primary-lightness) + 5%)
   );
   --hover-color: var(--color-light);
-  --padding: 6px 18px;
-  --font-size: 15px;
+  --padding: 0.375rem 1.125rem;
+  --font-size: 0.9375rem;
   --border-radius: 100vh;
 }
 
 .main-title {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 1.5625rem;
 }
 
 .main-title h2 {
   color: var(--color-tertiary);
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
   text-transform: uppercase;
 }
 
 .main-title p {
-  font-size: 50px;
+  font-size: 3.125rem;
   font-family: var(--font-primary);
 }
 
@@ -219,7 +219,7 @@ nav {
 }
 
 nav .container {
-  --padding: 25px 5px;
+  --padding: 1.5625rem 0.3125rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -237,10 +237,10 @@ nav .container {
 }
 
 nav .nav-links {
-  --inline-gap: 15px;
-  --block-gap: 5px;
+  --inline-gap: 0.9375rem;
+  --block-gap: 0.3125rem;
   display: flex;
-  font-size: 17px;
+  font-size: 1.0625rem;
   color: var(--color-tertiary);
   font-weight: 600;
 }
@@ -249,7 +249,7 @@ nav .nav-links .close-icon {
   display: none;
   width: fit-content;
   align-self: flex-end;
-  font-size: 22px;
+  font-size: 1.375rem;
 }
 
 nav:has(.nav-links:target) {
@@ -272,14 +272,7 @@ nav .nav-links a {
   transition: color var(--animation-duration);
 }
 
-body:has(:not(:target)) li a[href="#home"] {
-  color: #000;
-}
-
-body:has(:not(:target)) li a[href="#home"]::before {
-  width: calc(100% - (var(--inline-gap) * 2));
-}
-
+body:not(body:has(:target)) li a[href="#home"],
 body:has(.home:target) li a[href="#home"],
 body:has(.contact:target) li a[href="#contact"],
 body:has(.gallery:target) li a[href="#gallery"],
@@ -287,6 +280,7 @@ body:has(.chefs:target) li a[href="#chefs"] {
   color: #000;
 }
 
+body:not(body:has(:target)) li a[href="#home"]::before,
 body:has(.home:target) li a[href="#home"]::before,
 body:has(.contact:target) li a[href="#contact"]::before,
 body:has(.gallery:target) li a[href="#gallery"]::before,
@@ -316,7 +310,7 @@ nav a.active::before {
 
 nav .menu-icon {
   cursor: pointer;
-  font-size: 25px;
+  font-size: 1.5625rem;
   display: none;
 }
 
@@ -340,24 +334,24 @@ header .container > * {
 .header-content h2 {
   color: var(--color-secondary);
   font-family: var(--font-primary);
-  font-size: 65px;
+  font-size: 4.0625rem;
 }
 
 .header-content p {
   margin-block: 20px;
   line-height: 1.6;
-  font-size: 16px;
+  font-size: 1rem;
   color: #4f4f5a;
 }
 
 .header-content .btn-group {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 2.5rem;
 }
 
 header .btn-main {
-  --padding: 10px 25px;
+  --padding: 0.625rem 1.5625rem;
   --border-radius: 0px 100vh 100vh;
 }
 
@@ -373,8 +367,8 @@ header .btn-main {
 }
 
 .video-btn .icon {
-  width: 55px;
-  height: 55px;
+  width: 3.4375rem;
+  height: 3.4375rem;
   border-radius: 50%;
   background-image: linear-gradient(
     to right,
@@ -384,8 +378,8 @@ header .btn-main {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
-  margin-right: 5px;
+  font-size: 1rem;
+  margin-right: 0.3125rem;
   position: relative;
 }
 
@@ -396,8 +390,8 @@ header .btn-main {
   top: 50%;
   transform: translate(-50%, -50%);
   background-color: var(--color-light);
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: inherit;
 }
 
@@ -415,8 +409,8 @@ header picture img:hover {
 
 /*?============> Chefs <============*/
 .chefs-cards {
-  --gap: 30px;
-  padding-block: 20px;
+  --gap: 1.875rem;
+  padding-block: 1.25rem;
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap);
@@ -426,7 +420,7 @@ header picture img:hover {
   width: calc(calc(100% - var(--gap) * 2) / 3);
   background-color: var(--color-light);
   text-align: center;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   overflow: hidden;
   position: relative;
   transition: scale var(--animation-duration);
@@ -454,22 +448,22 @@ header picture img:hover {
   background-image: url("../img/team-shape.svg");
   background-repeat: repeat-x;
   width: 100%;
-  height: 60px;
+  height: 3.75rem;
 }
 
 .chefs-cards .card-content {
-  padding: 25px;
-  padding-top: 10px;
+  padding: 1.5625rem;
+  padding-top: 0.625rem;
 }
 
 .chefs-cards .card span {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--color-tertiary);
-  margin-block: 5px 10px;
+  margin-block: 0.3125rem 0.625rem;
 }
 
 .chefs-cards .card p {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-style: italic;
   color: var(--color-tertiary);
 }
@@ -477,22 +471,22 @@ header picture img:hover {
 .chefs-cards .social-box {
   background-color: #ffffff4d;
   width: fit-content;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 0.625rem;
+  border-radius: 0.3125rem;
   position: absolute;
-  top: 30px;
-  right: -50px;
+  top: 1.875rem;
+  right: -3.125rem;
   transition: right calc(var(--animation-duration) / 2);
 }
 
 .chefs-cards .card:hover .social-box {
-  right: 10px;
+  right: 0.625rem;
   transition: right var(--animation-duration) var(--animation-duration);
 }
 
 .chefs-cards .social-box i {
-  font-size: 18px;
-  padding: 10px 5px;
+  font-size: 1.125rem;
+  padding: 0.625rem 0.3125rem;
   color: #37373f66;
   transition: color var(--animation-duration);
 }
@@ -503,12 +497,12 @@ header picture img:hover {
 
 /*?============> Gallery <============*/
 .gallery-photos {
-  --gap: 20px;
-  height: 1165px;
+  --gap: 1.25rem;
+  height: 72.8125rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .gallery-photos picture {
@@ -526,7 +520,7 @@ header picture img:hover {
 .gallery-photos picture .layer {
   width: 100%;
   height: 100%;
-  padding: 15px;
+  padding: 0.9375rem;
   background-color: #00000096;
   position: absolute;
   top: 100%;
@@ -557,12 +551,12 @@ header picture img:hover {
 /*?============> Contact <============*/
 .contact iframe {
   width: 100%;
-  height: 350px;
+  height: 21.875rem;
 }
 
 .contact .details {
-  --gap: 15px;
-  margin-block: 25px;
+  --gap: 0.9375rem;
+  margin-block: 1.5625rem;
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap);
@@ -572,7 +566,7 @@ header picture img:hover {
   width: calc(calc(100% - var(--gap)) / 2);
   display: flex;
   align-items: center;
-  padding: 25px;
+  padding: 1.5625rem;
   background-color: hsl(
     var(--light-hue),
     var(--light-saturation),
@@ -582,14 +576,14 @@ header picture img:hover {
 
 .contact .details > div h3 {
   color: #7d7d7d;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   margin: 0 0 5px 0;
 }
 
 .contact .details .icon {
-  min-width: 50px;
-  min-height: 50px;
+  min-width: 3.125rem;
+  min-height: 3.125rem;
   background-color: var(--color-primary);
   border-radius: 50%;
   display: flex;
@@ -600,17 +594,17 @@ header picture img:hover {
 
 .contact .details .icon i {
   color: var(--color-light);
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .contact form {
-  --gap: 15px;
+  --gap: 0.9375rem;
   background-color: var(--color-light);
-  padding: 20px;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 0 30px #00000014;
+  box-shadow: 0 0 1.875rem #00000014;
   gap: var(--gap);
 }
 
@@ -648,14 +642,14 @@ header picture img:hover {
 }
 
 .contact form textarea {
-  min-height: 150px;
-  max-height: 300px;
+  min-height: 9.375rem;
+  max-height: 18.75rem;
   resize: vertical;
 }
 
 .contact form button[type="submit"] {
-  --padding: 12px 40px;
-  margin-top: 25px;
+  --padding: 0.75rem 2.5rem;
+  margin-top: 1.5625rem;
   width: fit-content;
   font-family: inherit;
 }
@@ -670,7 +664,7 @@ footer {
 }
 
 footer .container {
-  --gap: 20px;
+  --gap: 1.25rem;
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap);
@@ -687,40 +681,41 @@ footer .container :is(.subscription) {
 footer .about div:nth-child(1) {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 footer .about p {
-  margin-block: 10px;
+  margin-block: 0.625rem;
 }
 
 footer .about img {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 footer .about h3 {
   text-align: center;
-  padding: 10px;
-  border-bottom: 2px solid #ddd;
+  padding: 0.625rem;
+  border-bottom: 2px solid #ddd6;
+  margin-bottom: 0.625rem;
 }
 
 footer .about .social-links {
-  padding: 10px;
+  padding: 0.625rem;
   display: flex;
-  gap: 20px;
+  justify-content: space-around;
 }
 
 footer .about .social-links i {
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 footer .subscription-box p {
-  margin-block: 10px;
+  margin-block: 0.625rem;
 }
 
 footer .sunscription-group {
-  margin-block: 10px;
+  margin-block: 1.25rem;
   display: flex;
   justify-content: space-between;
   gap: 5px;
@@ -728,7 +723,7 @@ footer .sunscription-group {
 
 footer .sunscription-group input {
   flex-grow: 1;
-  padding: 10px;
+  padding: 0.625rem;
 }
 
 footer .sunscription-group input:focus-visible {
@@ -737,12 +732,13 @@ footer .sunscription-group input:focus-visible {
 
 footer .sunscription-group button {
   --border-radius: 0;
-  --padding: 10px;
+  --padding: 0.625rem;
+  min-width: 6.875rem;
 }
 
 footer .quick-links ul {
-  --gap: 20px;
-  margin-top: 10px;
+  --gap: 1.25rem;
+  margin-top: 0.625rem;
   display: flex;
   flex-wrap: wrap;
   column-gap: var(--gap);
@@ -778,12 +774,12 @@ footer .contact-details ul li {
 }
 
 footer .contact-details ul li i {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--color-primary);
-  font-size: 22px;
+  font-size: 1.375rem;
   cursor: pointer;
 }
